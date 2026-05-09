@@ -4,8 +4,8 @@ const urlsToCache = [
   '/index.html',
   '/styles.css',
   '/app.js',
-  '/glogo.jpg',
-  '/glogo.jpg',
+  '/gurukul-logo.jpg',
+  '/gurukul-logo.jpg',
 ];
 
 self.addEventListener('install', (event) => {
