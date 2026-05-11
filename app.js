@@ -1,4 +1,4 @@
-const backendURL = 'https://script.google.com/macros/s/AKfycbybWO8cIY7_Ud7yIui6TnWVWhyPZzmfGdfhn2Ckhcq1WmOA-ewGdzCunthBqjbpvjbI/exec';
+const backendURL = 'https://script.google.com/macros/s/AKfycbwZi3Vz3iM3BLwSwDC4IL1cksZUKmy7UYkHjYHe2kz3cTppA70e7KFLHIWXIHUfQQuh/exec';
 
 let allTransactions = [];
 
@@ -81,7 +81,7 @@ function calculateBalance(name, cls) {
   const txs = allTransactions.filter(t => t.name === name && t.class === cls);
   return txs.reduce((sum, tx) => sum + (tx.credit - tx.debit), 0);
 }
-
+console.log("Entries to save:", entries.length, entries);
 async function saveAllEntries() {
   const date = document.getElementById('entryDate').value;
   if (!date) return alert('Please select a date.');
@@ -114,7 +114,6 @@ async function saveAllEntries() {
       })
     });
     const result = await res.json();
-    // ✅ Fixed: was result.saved (undefined), now shows correct count
     document.getElementById('entryStatus').textContent = `✅ ${result.saved} entries saved!`;
   } catch (err) {
     alert('Error saving entries. Please try again.');
